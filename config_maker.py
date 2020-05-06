@@ -28,7 +28,7 @@ if __name__=="__main__":
         for model in ["SVM","DecisionTree"]:
             for param in bagging_param_list:
                 conf=copy.deepcopy(template)
-                model_name="bagging_{};model={};t={};m={}".format(_type,model,param["t"],param["m"])
+                model_name="bagging_{}_model={}_t={}_m={}".format(_type,model,param["t"],param["m"])
 
                 conf["model_name"]=model_name
                 conf["model_params"]["ensemble"]["inner_model"]=model
@@ -50,7 +50,7 @@ if __name__=="__main__":
     for model in ["SVM","DecisionTree"]:
         for param in adaboostm1_param_list:
             conf=copy.deepcopy(template)
-            model_name="adaboostm1;model={};t={}".format(model,param["t"])
+            model_name="adaboostm1_model={}_t={}".format(model,param["t"])
 
             conf["model_name"]=model_name
             conf["model_params"]["ensemble"]["inner_model"]=model
