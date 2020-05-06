@@ -11,6 +11,7 @@ class TfidfFormatter:
     def __init__(self,conf):
         self.text_use_which=conf["text_use_which"]
         self.label_use_which=conf["label_use_which"]
+        self.is_english=conf["is_english"] if "is_english" in conf else False
         self.segmentor=jieba
         self.vectorizer=TfidfVectorizer(min_df=2, max_df=1.0, token_pattern='\\b\\w+\\b')
         self.task=conf["task"]
@@ -22,7 +23,10 @@ class TfidfFormatter:
         labels=[]
         meta_infos=[]
         for d in data:
-            text=' '.join(self.segmentor.cut(d[self.text_use_which]))
+            if self.is_english:
+                text=d[self.text_use_which]
+            else:
+                text=' '.join(self.segmentor.cut(d[self.text_use_which]))
             texts.append(text)
             if (labels is not None):
                 if self.label_use_which in d:
@@ -44,7 +48,8 @@ class TfidfFormatter:
                     if not l in self.label2id:
                         self.label2id[l]=len(self.label2id)
                 self.id2label=all_labels
-                labels=[self.label2id[l] for l in labels]
+        if self.task=="Classification" and (labels is not None):
+            labels=[self.label2id[l] for l in labels]
         
         texts=self.vectorizer.transform(texts)
         
