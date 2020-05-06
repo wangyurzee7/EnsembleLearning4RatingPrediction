@@ -43,7 +43,7 @@ if __name__=="__main__":
     
     if not os.path.exists(CONST["model_dumped_path"]):
         os.mkdir(CONST["model_dumped_path"])
-    model_name=guess_model_name(conf_file_name)
+    model_name=conf["model_name"] if "model_name" in conf else guess_model_name(conf_file_name)
     
     if "train_path_params" in conf:
         train_file_path_list={

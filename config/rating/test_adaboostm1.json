@@ -4,9 +4,14 @@
     "text_use_which": "reviewText",
     "label_use_which": "overall",
     
-    "model": "SVM",
+    "model": "AdaBoost.M1",
     "task": "Classification",
     "model_params":{
+        "ensemble":{
+            "inner_model": "DecisionTree",
+            "t": 10
+        },
+        "max_depth":16,
         "class_weight":"balanced"
     },
     

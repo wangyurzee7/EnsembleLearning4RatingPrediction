@@ -7,6 +7,7 @@
     "model": "DecisionTree",
     "task": "Classification",
     "model_params":{
+        "max_depth":16,
         "class_weight":"balanced"
     },
     
@@ -23,5 +24,6 @@
 
     "test_output_dumper": "CsvFormatOutputDumper",
 
+    "save_log": true,
     "shuffle": true
 }

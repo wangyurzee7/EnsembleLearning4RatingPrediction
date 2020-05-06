@@ -7,6 +7,8 @@ def set_model_params(model,params):
         val=params[key]
         if key=="class_weight":
             model.set_params(class_weight=val)
+        elif key=="max_depth":
+            model.set_params(max_depth=val)
         else:
             pass
 

@@ -4,13 +4,18 @@
     "text_use_which": "reviewText",
     "label_use_which": "overall",
     
-    "model": "SVM",
-    "task": "Classification",
+    "model": "Bagging",
+    "task": "Regression",
     "model_params":{
-        "class_weight":"balanced"
+        "ensemble":{
+            "inner_model": "DecisionTree",
+            "t": 10,
+            "m": 1000
+        },
+        "max_depth":16
     },
     
-    "accuracy_methods": ["macro-f1","accuracy","RMSE"],
+    "accuracy_methods": ["RMSE"],
     
     "dataset_format": "csv",
     "csv_separator": "\t",

@@ -22,5 +22,6 @@
 
     "test_output_dumper": "CsvFormatOutputDumper",
 
+    "save_log": true,
     "shuffle": true
 }

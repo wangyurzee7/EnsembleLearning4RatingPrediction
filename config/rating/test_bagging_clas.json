@@ -4,9 +4,15 @@
     "text_use_which": "reviewText",
     "label_use_which": "overall",
     
-    "model": "SVM",
+    "model": "Bagging",
     "task": "Classification",
     "model_params":{
+        "ensemble":{
+            "inner_model": "SVM",
+            "t": 10,
+            "m": 1000
+        },
+        "max_depth":16,
         "class_weight":"balanced"
     },
     

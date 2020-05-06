@@ -7,6 +7,7 @@
     "model": "DecisionTree",
     "task": "Regression",
     "model_params":{
+        "max_depth":16
     },
     
     "accuracy_methods": ["MSE","RMSE"],
@@ -22,5 +23,6 @@
 
     "test_output_dumper": "CsvFormatOutputDumper",
 
+    "save_log": true,
     "shuffle": true
 }
