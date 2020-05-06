@@ -1,5 +1,5 @@
-# sklearn_worker
+# EnsembleLearning4RatingPrediction
 
-Author: Yazid Wong
+Forked from [https://github.com/wangyurzee7/sklearn_worker](https://github.com/wangyurzee7/sklearn_worker)
 
-
+To be completed...
