@@ -4,18 +4,15 @@
   "text_use_which": "reviewText",
   "label_use_which": "overall",
   "model": "AdaBoost.M1",
-  "task": "Classification",
+  "task": "Regression",
   "model_params": {
     "ensemble": {
-      "inner_model": "DecisionTree",
-      "t": 20
+      "inner_model": "SVM",
+      "t": 10
     },
-    "max_depth": 32,
-    "class_weight": "balanced"
+    "max_depth": 32
   },
   "accuracy_methods": [
-    "macro-f1",
-    "accuracy",
     "RMSE"
   ],
   "dataset_format": "csv",
@@ -35,5 +32,5 @@
   "test_output_dumper": "CsvFormatOutputDumper",
   "save_log": true,
   "shuffle": true,
-  "model_name": "adaboostm1_model=DecisionTree_t=20"
+  "model_name": "adaboostm1_regr_model=SVM_t=10"
 }
