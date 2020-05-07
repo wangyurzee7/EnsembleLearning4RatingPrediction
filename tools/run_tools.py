@@ -46,6 +46,7 @@ def load_model(model_name,model,formatter):
     formatter.load(src_path)
     model.load(src_path)
 
+
 def test(formatter,model,file_path,model_name,test_title,conf,out_file_name=None,valid=False,output_dumper=None):
     file_list=conf["valid_file_list"] if valid else conf["test_file_list"]
     test_file_list=[os.path.join(file_path,f) for f in file_list]
@@ -65,15 +66,18 @@ def test(formatter,model,file_path,model_name,test_title,conf,out_file_name=None
             data["y"]=formatter.pred2label(data["y"])
         for acc in accuracy_methods.keys():
             pretty_result[acc]=accuracy_methods[acc](data["y"],result)
-        print("[ {} ] {}".format(test_title,str(pretty_result)))
+        info="[ {} ] {}".format(test_title,str(pretty_result))
+        print(info)
         
         if ("save_log" in conf) and conf["save_log"]:
             if out_file_name is not None:
                 log_file_name=os.path.join(CONST["model_dumped_path"],model_name,"{}.log.txt".format(out_file_name))
             else:
                 log_file_name=os.path.join(CONST["model_dumped_path"],model_name,"log.txt")
-            dumped=list(zip(data["meta_info"],result,data["y"]))
-            json.dump(dumped,open(log_file_name,"w"),ensure_ascii=False)
+            # dumped=list(zip(data["meta_info"],result,data["y"]))
+            # json.dump(dumped,open(log_file_name,"w"),ensure_ascii=False)
+            with open(log_file_name,"w") as log_file:
+                log_file.write(info)
     else:
         print("[ {} ] Test Completed.".format(test_title))
     

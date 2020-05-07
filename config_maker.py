@@ -42,7 +42,7 @@ if __name__=="__main__":
                 csv_file="models/{}/CsvFormatOutputDumper.csv".format(model_name)
 
                 f_run_sh.write("python3 main.py --config {} \n".format(file_name))
-                f_cat_sh.write("cat main.py --config {} \n".format(log_file))
+                f_cat_sh.write("cat {} \n".format(log_file))
                 f_upload_sh.write("kaggle competitions submit -c thuml2020 -f {} -m \"{}\" \n".format(csv_file,model_name))
     
     # adaboostm1
@@ -64,7 +64,7 @@ if __name__=="__main__":
             csv_file="models/{}/CsvFormatOutputDumper.csv".format(model_name)
 
             f_run_sh.write("python3 main.py --config {} \n".format(file_name))
-            f_cat_sh.write("cat main.py --config {} \n".format(log_file))
+            f_cat_sh.write("cat {} \n".format(log_file))
             f_upload_sh.write("kaggle competitions submit -c thuml2020 -f {} -m \"{}\" \n".format(csv_file,model_name))
 
     f_run_sh.close()

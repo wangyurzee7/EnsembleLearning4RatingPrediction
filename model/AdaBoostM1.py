@@ -6,12 +6,18 @@ import numpy as np
 
 from .___init___ import get_model
 
+max_n_dict={
+    "SVM":3000,
+    # "DecisionTree":2000,
+    "DecisionTree":200000,
+}
+
 class AdaBoostM1:
     def __init__(self,conf):
-        self.max_n=5000
+        self.inner_model_name=conf["model_params"]["ensemble"]["inner_model"]
+        self.max_n=max_n_dict[self.inner_model_name]
         assert conf["task"]=="Classification"
         self.t=conf["model_params"]["ensemble"]["t"]
-        self.inner_model_name=conf["model_params"]["ensemble"]["inner_model"]
         self.model=[]
         self.conf_bak=conf
     def fit(self,data):

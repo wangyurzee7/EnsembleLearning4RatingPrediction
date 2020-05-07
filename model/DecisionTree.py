@@ -14,7 +14,7 @@ def set_model_params(model,params):
 
 class DecisionTree:
     def __init__(self,conf):
-        self.max_n=10000
+        self.max_n=200000
         if conf["task"]=="Classification":
             self.model=tree.DecisionTreeClassifier()
         elif conf["task"]=="Regression":
