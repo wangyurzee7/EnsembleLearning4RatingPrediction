@@ -38,7 +38,6 @@ class AdaBoostM1:
         #     data["x"]=data["x"][:self.max_n]
         #     data["y"]=data["y"][:self.max_n]
         n=len(data["y"])
-        print(n)
         weight=np.array([1/n for i in range(n)])
         self.model.clear()
         beta=[]
