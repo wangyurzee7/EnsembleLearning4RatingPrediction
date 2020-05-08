@@ -30,7 +30,7 @@ class AdaBoostM1:
         beta=[]
         for i in range(self.t):
             curr_model=get_model(self.inner_model_name,self.conf_bak)
-            curr_model.fit(data,sample_weight=weight)
+            curr_model.fit(data,sample_weight=(n*weight))
             p=curr_model.predict(data)
             if self.task=="Classification":
                 eps=np.sum((p!=data["y"])*weight)
