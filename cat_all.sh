@@ -8,6 +8,8 @@ cat models/bagging_clas_model=SVM_t=10_m=3000/log.txt
 echo '' 
 cat models/bagging_clas_model=SVM_t=25_m=3000/log.txt 
 echo '' 
+cat models/bagging_clas_model=SVM_t=50_m=5000/log.txt 
+echo '' 
 cat models/bagging_clas_model=DecisionTree_t=10_m=1000/log.txt 
 echo '' 
 cat models/bagging_clas_model=DecisionTree_t=25_m=1000/log.txt 
@@ -17,6 +19,8 @@ echo ''
 cat models/bagging_clas_model=DecisionTree_t=10_m=3000/log.txt 
 echo '' 
 cat models/bagging_clas_model=DecisionTree_t=25_m=3000/log.txt 
+echo '' 
+cat models/bagging_clas_model=DecisionTree_t=50_m=5000/log.txt 
 echo '' 
 cat models/bagging_regr_model=SVM_t=10_m=1000/log.txt 
 echo '' 
@@ -28,6 +32,8 @@ cat models/bagging_regr_model=SVM_t=10_m=3000/log.txt
 echo '' 
 cat models/bagging_regr_model=SVM_t=25_m=3000/log.txt 
 echo '' 
+cat models/bagging_regr_model=SVM_t=50_m=5000/log.txt 
+echo '' 
 cat models/bagging_regr_model=DecisionTree_t=10_m=1000/log.txt 
 echo '' 
 cat models/bagging_regr_model=DecisionTree_t=25_m=1000/log.txt 
@@ -37,6 +43,8 @@ echo ''
 cat models/bagging_regr_model=DecisionTree_t=10_m=3000/log.txt 
 echo '' 
 cat models/bagging_regr_model=DecisionTree_t=25_m=3000/log.txt 
+echo '' 
+cat models/bagging_regr_model=DecisionTree_t=50_m=5000/log.txt 
 echo '' 
 cat models/adaboostm1_clas_model=SVM_t=5/log.txt 
 echo '' 

@@ -7,6 +7,7 @@ bagging_param_list=[
     {"t":50,"m":1000},
     {"t":10,"m":3000},
     {"t":25,"m":3000},
+    {"t":50,"m":5000},
 ]
 
 adaboostm1_param_list=[
