@@ -55,13 +55,11 @@ class AdaBoostM1:
                 assert i>0
                 break
             self.model.append(curr_model)
-            curr_beta=eps/(1-eps)
-            if eps>0:
-                weight=(np.abs(p-data["y"])<=0.5)*curr_beta+(np.abs(p-data["y"])>0.5)
-            else:
-                print("[ !!!!!!Warning!!!!!! ] eps=0 !!!!!!!!! There may be overfit!")
+            if eps<1e-7:
                 eps=1e-7
-                weight=np.array([1/n for i in range(n)])
+                print("[ !!!!!!Warning!!!!!! ] eps=0 !!!!!!!!! There may be overfit!")
+            curr_beta=eps/(1-eps)
+            weight=(np.abs(p-data["y"])<=0.5)*curr_beta+(np.abs(p-data["y"])>0.5)
             beta.append(curr_beta)
             weight=weight/np.sum(weight)
         self.beta=np.array(beta)
