@@ -17,7 +17,7 @@ def set_model_params(model,params):
 
 class SVM:
     def __init__(self,conf):
-        self.max_n=5000
+        self.max_n=20000
         if conf["task"]=="Classification":
             self.model=svm.SVC()
         elif conf["task"]=="Regression":
