@@ -22,21 +22,23 @@ class AdaBoostM1:
         self.model=[]
         self.conf_bak=conf
     def fit(self,data):
-        n_label=max(data["y"])+1
-        index_list=[[] for i in range(n_label)]
-        for i in range(len(data["y"])):
-            index_list[data["y"][i]].append(i)
-        n_each=min(self.max_n//n_label, max(map(len,index_list)))
-        indice=[]
-        for il in index_list:
-            indice.extend(il[:n_each])
-        if self.conf_bak["shuffle"]:
-            random.shuffle(indice)
-        data["x"]=data["x"][indice]
-        data["y"]=np.array(data["y"])[indice]
-        # if len(data["y"])>self.max_n:
-        #     data["x"]=data["x"][:self.max_n]
-        #     data["y"]=data["y"][:self.max_n]
+        if self.task=="Classification":
+            n_label=max(data["y"])+1
+            index_list=[[] for i in range(n_label)]
+            for i in range(len(data["y"])):
+                index_list[data["y"][i]].append(i)
+            n_each=min(self.max_n//n_label, max(map(len,index_list)))
+            indice=[]
+            for il in index_list:
+                indice.extend(il[:n_each])
+            if self.conf_bak["shuffle"]:
+                random.shuffle(indice)
+            data["x"]=data["x"][indice]
+            data["y"]=np.array(data["y"])[indice]
+        else:
+            if len(data["y"])>self.max_n:
+                data["x"]=data["x"][:self.max_n]
+                data["y"]=data["y"][:self.max_n]
         n=len(data["y"])
         weight=np.array([1/n for i in range(n)])
         self.model.clear()
